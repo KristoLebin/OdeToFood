@@ -2,6 +2,7 @@
     background-color: #ecfcff;
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: 'Roboto Mono', monospace;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -9,7 +10,9 @@
     padding-left: 15px;
     padding-right: 15px;
 }
-
+.jumbotron {
+    background-color: #b2fcff;
+}
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -23,3 +26,29 @@ select,
 textarea {
     max-width: 280px;
 }
+.review{
+    padding: 2px;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+.review h4{
+    color: maroon;
+    padding: 5px;
+    background: #cccc99;
+}
+.reviev span{
+    font-size: .8em;
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 225px;
+}
+a.logo {
+    background: url(../images/7e2206da-35be-43f9-8bf3-3ea45d70af73_200x200.png) no-repeat top left;
+     display: block;
+     width: 150px;
+     height: 150px;
+     text-indent: -9999px;
+ }
