@@ -10,11 +10,7 @@ We are showing the latest @Model.Count() reviews
 
 @foreach (var item in Model)
 {
-    <div class="review">
-        <h4>@item.name</h4> 
-        <span>@item.rating</span>
-        <p>@item.city, @item.country</p>
-    </div>
+    @Html.Partial("_Review", item);
 }
 
 <p>

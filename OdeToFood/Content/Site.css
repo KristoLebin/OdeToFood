@@ -31,11 +31,11 @@ textarea {
     border-bottom: 2px solid black;
     padding-bottom: 10px;
 }
-.review h4{
-    color: maroon;
-    padding: 5px;
-    background: #cccc99;
-}
+    .review h4 {
+        color: black;
+        padding: 5px;
+        background: #b2fcff;
+    }
 .reviev span{
     font-size: .8em;
 }
