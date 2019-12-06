@@ -17,8 +17,29 @@ namespace OdeToFood.Controllers
             var id = RouteData.Values["id"];
             ViewBag.message = $"{controller} :: {action} - {id}";
 
-            var model = _db.Restaurants.ToList();
-
+            //var model =
+            //    from r in _db.Restaurants
+            //    orderby r.Reviews.Average(review => review.rating)
+            //    select new RestaurantListViewModel
+            //    {
+            //        Id = r.Id,
+            //        Name = r.Name,
+            //        City = r.City,
+            //        Country = r.Country,
+            //        CountOfReviews = r.Reviews.Count()
+            //    };
+            var model =
+                _db.Restaurants
+                    .OrderByDescending(r => r.Reviews.Average(review => review.rating))
+                    .Take(10)
+                    .Select(r => new RestaurantListViewModel
+                        {
+                            Id = r.Id,
+                            Name = r.Name,
+                            City = r.City,
+                            Country = r.Country,
+                            CountOfReviews = r.Reviews.Count()
+                        });
             return View(model);
         }
 
