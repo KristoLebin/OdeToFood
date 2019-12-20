@@ -52,3 +52,7 @@ a.logo {
      height: 150px;
      text-indent: -9999px;
  }
+.right{
+    margin-top: -20px;
+    float: right;
+}

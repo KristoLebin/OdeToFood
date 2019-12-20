@@ -10,12 +10,12 @@ namespace OdeToFood.Controllers
     public class HomeController : Controller
     {
         OdeToFoodDb _db = new OdeToFoodDb();
-        public ActionResult Index()
+        public ActionResult Index(string searchTerm=null)
         {
-            var controller = RouteData.Values["controller"];
-            var action = RouteData.Values["action"];
-            var id = RouteData.Values["id"];
-            ViewBag.message = $"{controller} :: {action} - {id}";
+            //var controller = RouteData.Values["controller"];
+            //var action = RouteData.Values["action"];
+            //var id = RouteData.Values["id"];
+            //ViewBag.message = $"{controller} :: {action} - {id}";
 
             //var model =
             //    from r in _db.Restaurants
@@ -31,6 +31,7 @@ namespace OdeToFood.Controllers
             var model =
                 _db.Restaurants
                     .OrderByDescending(r => r.Reviews.Average(review => review.rating))
+                    .Where(r => searchTerm == null || r.Name.StartsWith(searchTerm))
                     .Take(10)
                     .Select(r => new RestaurantListViewModel
                         {
@@ -45,6 +46,7 @@ namespace OdeToFood.Controllers
 
         public ActionResult About()
         {
+            ViewBag.Message = "Your application description page.";
             var Model = new AboutModels();
             Model.Name = "Kristo";
             Model.Location = "Tallinn, Estonia";

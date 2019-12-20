@@ -1,29 +1,24 @@
 ﻿@model IEnumerable<OdeToFood.Models.RestaurantListViewModel>
+
 @{
     ViewBag.Title = "Home Page";
 }
-<div class="jumbotron">
-    <h1>@ViewBag.Message</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-success">Learn more &raquo;</a></p>
-</div>
+
+    <form class="searchBox" method="get">
+        <input type="search" name="searchTerm" />
+        <input class="SBN" type="submit" value="Search By Name" />
+    </form>
 
 @foreach (var item in Model)
 {
     <div>
-        <h4>
-            @item.Name
-        </h4>
+        <h4>@item.Name</h4>
         <div>@item.City, @item.Country</div>
-        <div>
-            Reviews: @item.CountOfReviews
-        </div>
+        <div>Reviews count: @item.CountOfReviews</div>
         <hr />
     </div>
 }
-
-<div class="col-md-6">
-    <h2>Dessert Recipes</h2>
-    <p>Here you can find any type of dessert recipes.</p>
-    <p><a class="btn btn-success" href="http://localhost:2401/desserts/apple%20pie/pies">Learn more &raquo;</a></p>
-</div>
+    <div>
+        <h2>McDonald's</h2>
+        <p><a class="btn btn-default" href="http://localhost:2236/mcdonalds/mustamae/bigborger">Learn more &raquo;</a></p>
+    </div>

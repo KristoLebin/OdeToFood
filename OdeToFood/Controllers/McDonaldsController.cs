@@ -11,7 +11,7 @@ namespace OdeToFood.Controllers
         // GET: McDonalds
         public ActionResult Kristo(string location, string meal)
         {
-            return Content($"Location of restoraunt: {location} <br/> Meal: {meal}");
+            return Content($"Location of restaurant: {location} <br/> Meal: {meal}");
         }
     }
 }
