@@ -30,6 +30,16 @@
                             new RestaurantReview { rating = 9, Body = "Great food!"}
                         }
                 });
+                for (int i = 0; i < 1000; i++)        
+                {
+                context.Restaurants.AddOrUpdate(r => r.Name,
+                    new Restaurant
+                    {
+                        Name = i.ToString(),
+                        City = "NoWhere",
+                        Country = "USA"
+                    });
+                }
         }
     }
 }

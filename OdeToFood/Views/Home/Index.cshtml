@@ -4,10 +4,25 @@
     ViewBag.Title = "Home Page";
 }
 
-    <form class="searchBox" method="get">
+    @*<form class="searchBox" method="get">
         <input type="search" name="searchTerm" />
         <input class="SBN" type="submit" value="Search By Name" />
-    </form>
+    </form>*@
+
+@using (Ajax.BeginForm(
+    new AjaxOptions
+    {
+        HttpMethod = "get",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "restaurantList"
+    }
+    ))
+{
+    <input type="search" name="searchTerm"/>
+    <input type="submit" name="Search By Name"/>
+}
+@Html.Partial("_Restaurants",Model)
+
 
 @foreach (var item in Model)
 {
